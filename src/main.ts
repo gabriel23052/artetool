@@ -1,5 +1,3 @@
-import "./main.css";
-
 import patterns from "./patterns";
 
 const getDomElement = <T extends Element>(selector: string): T => {
