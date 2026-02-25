@@ -1,0 +1,93 @@
+/* ------ FORM ------ */
+.form {
+  width: 100%;
+  max-width: 420px;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 auto 32px auto;
+  padding: 16px;
+  box-sizing: border-box;
+  background: var(--b1);
+  border: 1px solid var(--b2);
+  border-radius: 8px;
+}
+
+.form h1 {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.form label {
+  margin-bottom: 8px;
+}
+
+.form input,
+.form select {
+  padding: 8px 16px;
+  background-color: var(--w);
+  border: 1px solid var(--b2);
+  border-radius: 4px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.form input {
+  margin-bottom: 24px;
+}
+.form input:hover,
+.form select:hover,
+.form input:focus,
+.form select:focus {
+  box-shadow: 0 0 2px 1px #ff9f02;
+  border-color: transparent;
+}
+
+.form div {
+  width: 100%;
+  position: relative;
+  margin-bottom: 40px;
+}
+.form div::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 12px;
+  position: absolute;
+  right: 9px;
+  top: 13px;
+  background: url("../../img/down-arrow.svg");
+  pointer-events: none;
+}
+
+.form select {
+  width: 100%;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.form button {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background: var(--b2);
+  border: 1px solid var(--b5);
+  border-radius: 4px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+  cursor: initial;
+}
+.form button.active {
+  color: var(--e4);
+  background: var(--gr);
+  border-color: transparent;
+  cursor: pointer;
+}
+.form button.active:hover,
+.form button.active:focus {
+  background: linear-gradient(#eb9200, #eb9200);
+}
+
+@media (max-width: 500px) {
+  .form {
+    border-radius: 0px;
+  }
+}
