@@ -12,13 +12,13 @@ const getDomElement = <T extends Element>(selector: string): T => {
 
 /* -- Objeto com os itens do DOM -- */
 const dom = {
-  backButton: getDomElement<HTMLButtonElement>(".j-backBtn"),
-  downloadButton: getDomElement<HTMLAnchorElement>(".j-downBtn"),
-  modal: getDomElement<HTMLDivElement>(".j-modal"),
-  image: getDomElement<HTMLImageElement>(".j-img"),
-  input: getDomElement<HTMLInputElement>(".j-nameInput"),
-  select: getDomElement<HTMLSelectElement>(".j-select"),
-  genButton: getDomElement<HTMLButtonElement>(".j-genBtn"),
+  backButton: getDomElement<HTMLButtonElement>(`[data-selector="backBtn"]`),
+  downloadButton: getDomElement<HTMLAnchorElement>(`[data-selector="downBtn"]`),
+  modal: getDomElement<HTMLDivElement>(`[data-selector="modal"]`),
+  image: getDomElement<HTMLImageElement>(`[data-selector="img"]`),
+  input: getDomElement<HTMLInputElement>(`[data-selector="nameInput"]`),
+  select: getDomElement<HTMLSelectElement>(`[data-selector="select"]`),
+  genButton: getDomElement<HTMLButtonElement>(`[data-selector="genBtn"]`),
 };
 
 /* -- Objeto que controla o modal -- */
