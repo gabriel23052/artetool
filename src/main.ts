@@ -2,15 +2,23 @@ import "./styles/style.css";
 
 import patterns from "./patterns";
 
+const getDomElement = <T extends Element>(selector: string): T => {
+  const element = document.querySelector(selector);
+  if (!(element instanceof Element)) {
+    throw new Error(`O elemento "${selector}" não pode ser localizado no DOM`);
+  }
+  return element as T;
+};
+
 /* -- Objeto com os itens do DOM -- */
 const dom = {
-  backButton: document.querySelector(".j-backBtn"),
-  downloadButton: document.querySelector(".j-downBtn"),
-  modal: document.querySelector(".j-modal"),
-  image: document.querySelector(".j-img"),
-  input: document.querySelector(".j-nameInput"),
-  select: document.querySelector(".j-select"),
-  genButton: document.querySelector(".j-genBtn"),
+  backButton: getDomElement<HTMLButtonElement>(".j-backBtn"),
+  downloadButton: getDomElement<HTMLAnchorElement>(".j-downBtn"),
+  modal: getDomElement<HTMLDivElement>(".j-modal"),
+  image: getDomElement<HTMLImageElement>(".j-img"),
+  input: getDomElement<HTMLInputElement>(".j-nameInput"),
+  select: getDomElement<HTMLSelectElement>(".j-select"),
+  genButton: getDomElement<HTMLButtonElement>(".j-genBtn"),
 };
 
 /* -- Objeto que controla o modal -- */
@@ -34,13 +42,15 @@ modal.eventListeners();
 /* -- Preenche o seletor com os modelos -- */
 patterns.forEach((pattern, index) => {
   const option = document.createElement("option");
-  option.value = index;
+  option.value = index.toString();
   option.innerText = pattern.name;
   dom.select.appendChild(option);
 });
 
 /* -- Bloqueio e desbloqueio do botão -- */
-dom.input.addEventListener("input", (e) => {
+dom.input.addEventListener("input", (e: Event) => {
+  if (!e.currentTarget || !(e.currentTarget instanceof HTMLInputElement))
+    return;
   if (e.currentTarget.value === "") {
     dom.genButton.classList.remove("active");
     enableButton = false;
@@ -55,14 +65,21 @@ let enableButton = false;
 dom.genButton.addEventListener("click", (e) => {
   e.preventDefault();
   if (enableButton) {
-    genCard(dom.input.value, dom.select.value);
+    genCard(dom.input.value, Number(dom.select.value));
   }
 });
 
 /* -- Função que gera a imagem do cartão -- */
-function genImg(name, pattern, callback) {
+function genImg(
+  name: string,
+  pattern: TPattern,
+  callback: (imgUrl: string) => void,
+) {
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
+  if (!ctx) {
+    throw new Error("Não foi possível resgatar o contexto do Canvas");
+  }
   const { width, height, x, y, imgFile, font, color, quality } = pattern;
   canvas.width = width;
   canvas.height = height;
@@ -79,7 +96,7 @@ function genImg(name, pattern, callback) {
 }
 
 /* -- Função que apresenta o cartão -- */
-function genCard(name, patternIndex) {
+function genCard(name: string, patternIndex: number) {
   genImg(name, patterns[patternIndex], (img) => {
     dom.image.src = img;
     modal.toggle();

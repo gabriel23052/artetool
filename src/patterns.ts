@@ -1,4 +1,4 @@
-export default [
+const patterns: TPattern[] = [
   {
     name: "Natal",
     width: 1080,
@@ -110,3 +110,5 @@ export default [
     quality: 0.9,
   },
 ];
+
+export default patterns;
