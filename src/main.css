@@ -26,25 +26,34 @@
 }
 
 :root {
-  --w: #ffffff;
-  --b1: #f6f6f6;
-  --b2: #e1e1e1;
-  --b3: #7b7b7b;
-  --b4: #dddddd;
-  --b5: #d3d3d3;
-  --b6: #aeaeae;
-  --e1: #004435;
-  --e2: #005744;
-  --e3: #b8d9cd;
-  --e4: #653f00;
-  --gr: linear-gradient(#ff9f02, #eb9200);
+  --neutral-bg2: #e1e1e1;
+  --neutral-bg1: #fafafa;
+  --neutral-bg0: #ffffff;
+  --neutral-tx0: #383838;
+  --neutral-tx1: #6d6d6d;
+  --neutral-tx2: #858585;
+  --neutral-bd0: #e1e1e1;
+  --neutral-bd1: #e7e7e7;
+
+  --neutral-inv-tx0: #ffffff;
+
+  --primary-bg: #005742;
+  --primary-dark-bg: #004031;
+  --primary-tx: #005742;
+
+  --secondary-bg: #ee8600;
+  --secondary-gradient-bg: linear-gradient(#ee8600, #ff9d00);
+  --secondary-dark-tx: #653f00;
+
+  --light-shadow: 0 0 4px rgb(0 0 0 / 10%);
+  --hover-shadow: 0 0 8px rgb(0 0 0 / 20%);
+  --heavy-shadow: 0 0 4px rgb(0 0 0 / 15%), 0 0 24px rgb(0 0 0 / 10%);
 }
 
-body,
-h1,
-ul {
+* {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
 }
 
 a {
@@ -76,44 +85,51 @@ button {
 body {
   padding-top: 64px;
 }
+
 @media (max-width: 500px) {
+  html {
+    font-size: 14px;
+  }
   body {
     padding-top: 48px;
   }
 }
 
-.w {
-  color: #ffffff;
+.neutral-bg0 {
+  background-color: var(--neutral-bg0);
 }
-.b1 {
-  color: #f6f6f6;
+.neutral-bg1 {
+  background-color: var(--neutral-bg1);
 }
-.b2 {
-  color: #e1e1e1;
+.neutral-bg2 {
+  background-color: var(--neutral-bg2);
 }
-.b3 {
-  color: #7b7b7b;
+.neutral-tx0 {
+  color: var(--neutral-tx0);
 }
-.b4 {
-  color: #dddddd;
+.neutral-tx1 {
+  color: var(--neutral-tx1);
 }
-.b5 {
-  color: #d3d3d3;
+.neutral-tx2 {
+  color: var(--neutral-tx2);
 }
-.b6 {
-  color: #aeaeae;
+.neutral-inv-tx0 {
+  color: var(--neutral-inv-tx0);
 }
-.e1 {
-  color: #005c46;
+.primary-bg {
+  background-color: var(--primary-bg);
 }
-.e2 {
-  color: #004635;
+.primary-dark-bg {
+  background-color: var(--primary-dark-bg);
 }
-.e3 {
-  color: #b8d9cd;
+.primary-tx {
+  color: var(--primary-tx);
 }
-.e4 {
-  color: #653f00;
+.secondary-gradient-bg {
+  background: var(--secondary-gradient-bg);
+}
+.secondary-dark-tx {
+  color: var(--secondary-dark-tx);
 }
 
 .link {
@@ -135,10 +151,4 @@ body {
   font:
     400 1rem/1.25 "BwModelica",
     sans-serif;
-}
-
-@media (max-width: 500px) {
-  html {
-    font-size: 14px;
-  }
 }

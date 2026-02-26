@@ -6,26 +6,41 @@
   box-sizing: border-box;
 }
 
-.intro a {
+.intro .artGenerator {
+  margin-bottom: 12px;
+}
+
+.intro .artGenerator a {
   display: block;
-  margin-bottom: 16px;
-  padding: 8px;
+  width: 100%;
   text-align: center;
-  border-radius: 100px;
-  background: #005c46;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
-  transition: background 0.2s;
+  padding-block: 12px;
+  border-radius: 12px;
+  box-shadow: var(--light-shadow);
+  transition:
+    300ms box-shadow,
+    300ms background-color;
 }
-.intro a:hover {
-  background: var(--e2);
+.intro .artGenerator a:hover {
+  background-color: var(--primary-dark-bg);
+  box-shadow: var(--hover-shadow);
 }
-.intro li:first-child a {
-  color: var(--e4);
-  background: var(--gr);
-  font: 500 1.25rem/1.2 "BwModelica", sans-serif;
-  padding: 12px;
+.intro .artGenerator a:focus {
+  outline: 2px solid var(--primary-bg);
+  outline-offset: 2px;
 }
-.intro li:first-child a:focus,
-.intro li:first-child a:hover {
-  background: linear-gradient(#eb9200, #eb9200);
+
+.officialSite a {
+  width: max-content;
+  display: block;
+  margin-inline: auto;
+  padding: 4px 8px;
+  text-decoration: underline;
+  border-radius: 12px;
+}
+.officialSite a:hover {
+  color: var(--neutral-tx0);
+}
+.officialSite a:focus {
+  outline: 1px solid var(--neutral-tx1);
 }

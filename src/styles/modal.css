@@ -1,4 +1,3 @@
-/* ------ MODAL ------ */
 .modal-bg {
   width: 100vw;
   height: 100vh;
@@ -23,8 +22,6 @@
   margin: 64px auto 16px auto;
   padding: 16px;
   box-sizing: border-box;
-  background: var(--b1);
-  border: 1px solid var(--b2);
   border-radius: 8px;
 }
 
@@ -37,41 +34,60 @@
 .modal .backButton {
   padding-top: 8px;
   padding-bottom: 8px;
-  background: var(--b2);
   border-radius: 4px;
   box-shadow:
     inset 0 0 0 1px var(--b5),
     0 0 2px rgba(0, 0, 0, 0.15);
   transition: background 0.3s;
 }
-.modal .backButton:hover,
+
+.modal .backButton {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding-block: 12px;
+  border-radius: 12px;
+  transition:
+    300ms box-shadow,
+    300ms background-color;
+}
+.modal .backButton:hover {
+  background-color: var(--neutral-bg1);
+  box-shadow: var(--hover-shadow);
+}
 .modal .backButton:focus {
-  background: #d9d9d9;
+  outline: 2px solid var(--neutral-tx2);
+  outline-offset: 2px;
 }
 
 .modal .downloadButton {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 8px;
-  background: var(--gr);
-  border-radius: 4px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+  gap: 16px;
+  padding-block: 12px;
+  border-radius: 12px;
   cursor: pointer;
+  transition:
+    300ms box-shadow,
+    300ms background-color;
 }
 .modal .downloadButton:hover {
-  background: linear-gradient(#eb9200, #eb9200);
+  background-color: var(--primary-dark-bg);
+  box-shadow: var(--hover-shadow);
 }
 .modal .downloadButton:focus {
-  background: linear-gradient(#eb9200, #eb9200);
+  outline: 2px solid var(--primary-bg);
+  outline-offset: 2px;
 }
-.modal .downloadButton::before {
+.modal .downloadButton::after {
   content: "";
   display: block;
   width: 16px;
   height: 16px;
-  background: url("svg/download.svg");
+  background: url("/svg/download.svg");
+  background-size: contain;
 }
 
 @media (max-width: 500px) {
@@ -81,7 +97,6 @@
   .modal .downloadButton::before {
     width: 14px;
     height: 14px;
-    background-size: contain;
   }
 }
 
@@ -93,4 +108,3 @@
     opacity: 100%;
   }
 }
-

@@ -1,15 +1,13 @@
-/* ------ FORM ------ */
 .form {
   width: 100%;
   max-width: 420px;
   display: grid;
   grid-template-columns: 1fr;
   margin: 0 auto 32px auto;
-  padding: 16px;
+  padding: 32px 20px;
   box-sizing: border-box;
-  background: var(--b1);
-  border: 1px solid var(--b2);
   border-radius: 8px;
+  box-shadow: var(--heavy-shadow);
 }
 
 .form h1 {
@@ -23,23 +21,24 @@
 
 .form input,
 .form select {
-  padding: 8px 16px;
-  background-color: var(--w);
-  border: 1px solid var(--b2);
+  padding: 12px 16px;
   border-radius: 4px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
-  transition: box-shadow 0.3s, border-color 0.3s;
+  box-shadow: var(--light-shadow);
+  border: 1px solid var(--neutral-bd1);
+  transition: 300ms background-color;
+}
+.form input:focus,
+.form select:focus {
+  outline: 2px solid var(--neutral-bd0);
+  outline-offset: 2px;
+}
+.form input:hover,
+.form select:hover {
+  background-color: var(--neutral-bg1);
 }
 
 .form input {
   margin-bottom: 24px;
-}
-.form input:hover,
-.form select:hover,
-.form input:focus,
-.form select:focus {
-  box-shadow: 0 0 2px 1px #ff9f02;
-  border-color: transparent;
 }
 
 .form div {
@@ -55,7 +54,7 @@
   position: absolute;
   right: 9px;
   top: 13px;
-  background: url("../../img/down-arrow.svg");
+  background: url("/svg/down-arrow.svg") no-repeat center;
   pointer-events: none;
 }
 
@@ -64,26 +63,33 @@
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
+  cursor: pointer;
 }
 
 .form button {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  background: var(--b2);
-  border: 1px solid var(--b5);
-  border-radius: 4px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
-  cursor: initial;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding-block: 12px;
+  border-radius: 12px;
+  transition:
+    300ms box-shadow,
+    300ms background-color;
 }
 .form button.active {
-  color: var(--e4);
-  background: var(--gr);
+  color: var(--neutral-inv-tx0);
+  background: var(--primary-bg);
   border-color: transparent;
   cursor: pointer;
+  box-shadow: var(--light-shadow);
 }
-.form button.active:hover,
+.form button.active:hover {
+  background-color: var(--primary-dark-bg);
+  box-shadow: var(--hover-shadow);
+}
 .form button.active:focus {
-  background: linear-gradient(#eb9200, #eb9200);
+  outline: 2px solid var(--primary-bg);
+  outline-offset: 2px;
 }
 
 @media (max-width: 500px) {
