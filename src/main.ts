@@ -1,3 +1,5 @@
+import "./main.css";
+import "./styles.css";
 import patterns from "./patterns";
 
 const getDomElement = <T extends Element>(selector: string): T => {
@@ -10,10 +12,10 @@ const getDomElement = <T extends Element>(selector: string): T => {
 
 /* -- Objeto com os itens do DOM -- */
 const dom = {
-  backButton: getDomElement<HTMLButtonElement>(`[data-selector="backBtn"]`),
-  downloadButton: getDomElement<HTMLAnchorElement>(`[data-selector="downBtn"]`),
-  modal: getDomElement<HTMLDivElement>(`[data-selector="modal"]`),
-  image: getDomElement<HTMLImageElement>(`[data-selector="img"]`),
+  // backButton: getDomElement<HTMLButtonElement>(`[data-selector="backBtn"]`),
+  // downloadButton: getDomElement<HTMLAnchorElement>(`[data-selector="downBtn"]`),
+  // modal: getDomElement<HTMLDivElement>(`[data-selector="modal"]`),
+  // image: getDomElement<HTMLImageElement>(`[data-selector="img"]`),
   input: getDomElement<HTMLInputElement>(`[data-selector="nameInput"]`),
   select: getDomElement<HTMLSelectElement>(`[data-selector="select"]`),
   genButton: getDomElement<HTMLButtonElement>(`[data-selector="genBtn"]`),
@@ -23,11 +25,11 @@ const dom = {
 const modal = {
   state: false,
   toggle: function () {
-    dom.modal.classList.toggle("active");
+    // dom.modal.classList.toggle("active");
     modal.state = !modal.state;
   },
   eventListeners: function () {
-    dom.backButton.addEventListener("click", this.toggle);
+    // dom.backButton.addEventListener("click", this.toggle);
     document.addEventListener("keydown", (e) => {
       if (modal.state && e.key === "Escape") {
         this.toggle();
@@ -96,9 +98,9 @@ function genImg(
 /* -- Função que apresenta a arte -- */
 function genArt(name: string, patternIndex: number) {
   genImg(name, patterns[patternIndex], (img) => {
-    dom.image.src = img;
+    // dom.image.src = img;
     modal.toggle();
-    dom.downloadButton.href = img.replace("image/jpeg", "image/octet-stream");
-    dom.downloadButton.download = "arte.jpeg";
+    // dom.downloadButton.href = img.replace("image/jpeg", "image/octet-stream");
+    // dom.downloadButton.download = "arte.jpeg";
   });
 }

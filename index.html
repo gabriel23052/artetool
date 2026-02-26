@@ -17,39 +17,24 @@
 </head>
 
 <body>
-  <main>
-
-    <div class="modal-bg" data-selector="modal">
-      <div class="modal neutral-bg1">
-        <img data-selector="img" src="" alt="">
-        <button class="backButton largeText neutral-bg2 neutral-tx1" data-selector="backBtn">FECHAR</button>
-        <a class="downloadButton largeText primary-bg neutral-inv-tx0" data-selector="downBtn">DOWNLOAD</a>
-      </div>
-    </div>
-
-    <img class="logo" src="svg/logo.svg" alt="Logo Cresol">
-
-    <div class="form">
-      <h1 class="title t-title neutral-tx0">Criador de Artes</h1>
-      <p class="description t-paragraph neutral-tx1">Crie artes personalizadas para a equipe</p>
-      <form action="./">
+  <img class="logo" src="svg/logo.svg" alt="Logo da Cresol">
+  <main class="mainContainer">
+    <form class="form" action="./">
+      <div class="form-field">
         <label class="t-label neutral-tx1" for="name">Nome</label>
         <input class="t-input neutral-bg0 neutral-tx0" type="name" name="name" id="name" autocomplete="off" maxlength="25" data-selector="nameInput">
+      </div>
+      <div class="form-field">
         <label class="t-label neutral-tx1" for="model">Modelo</label>
-        <div>
-          <select class="t-input neutral-bg0 neutral-tx0" data-selector="select" name="model" id="model">
-          </select>
-        </div>
-        <button class="t-buttonLabel neutral-bg2 neutral-tx2" data-selector="genBtn">CRIAR</button>
-      </form>
-    </div>
-
-    <footer class="credits">
-      <p class="t-paragraph neutral-tx1">Desenvolvido por Gabriel G. Pereira</p>
-    </footer>
-
+        <select class="t-input neutral-bg0 neutral-tx0" data-selector="select" name="model" id="model"></select>
+      </div>
+      <button class="form-submitButton t-buttonLabel neutral-bg2 neutral-tx2" data-selector="genBtn">CRIAR</button>
+    </form>
+    <div class="preview"></div>
   </main>
-
+  <footer class="credits">
+    <p class="t-paragraph neutral-tx1">Desenvolvido por Gabriel G. Pereira</p>
+  </footer>
   <script type="module" src="src/main.ts"></script>
 </body>
 

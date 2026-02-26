@@ -1,0 +1,123 @@
+.logo {
+  width: max-content;
+  padding-top: 64px;
+  margin: 0px auto 64px auto;
+}
+
+.mainContainer {
+  width: min(1200px, 100%);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+  align-items: start;
+  margin-inline: auto;
+  box-shadow: var(--heavy-shadow);
+  border-radius: 16px;
+}
+
+.form {
+  width: 100%;
+  padding: 32px 20px;
+  border-radius: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.form-field input,
+.form-field select {
+  padding: 12px;
+  border: 1px solid var(--neutral-bd1);
+  border-radius: 4px;
+  box-shadow: var(--light-shadow);
+  transition: 300ms background-color;
+}
+.form-field input:focus,
+.form-field select:focus {
+  outline: 2px solid var(--neutral-bd0);
+  outline-offset: 2px;
+}
+.form-field input:hover,
+.form-field select:hover {
+  background-color: var(--neutral-bg1);
+}
+
+.form-field select {
+  width: 100%;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.form-field:last-of-type {
+  position: relative;
+  margin-bottom: 40px;
+}
+.form-field:last-of-type::after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 12px;
+  position: absolute;
+  right: 16px;
+  bottom: 17px;
+  background: url("/svg/down-arrow.svg") no-repeat center;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+
+.form-submitButton {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding-block: 12px;
+  border-radius: 12px;
+  transition:
+    300ms box-shadow,
+    300ms background-color;
+}
+.form-submitButton.active {
+  color: var(--neutral-inv-tx0);
+  background: var(--primary-bg);
+  cursor: pointer;
+  box-shadow: var(--light-shadow);
+}
+.form-submitButton.active:hover {
+  background-color: var(--primary-dark-bg);
+  box-shadow: var(--hover-shadow);
+}
+.form-submitButton.active:focus {
+  outline: 2px solid var(--primary-bg);
+  outline-offset: 2px;
+}
+
+.credits {
+  width: max-content;
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 500px) {
+  .logo {
+    margin-bottom: 48px;
+    width: 250px;
+  }
+}
+
+@media (max-height: 640px) {
+  .credits {
+    width: 100%;
+    margin-top: 32px;
+    text-align: center;
+    position: static;
+    transform: none;
+  }
+}
