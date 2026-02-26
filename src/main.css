@@ -1,7 +1,7 @@
-@import "./styles/intro.css";
 @import "./styles/logo.css";
 @import "./styles/modal.css";
 @import "./styles/form.css";
+@import "./styles/credits.css";
 
 @font-face {
   font-family: "BwModelica";
@@ -47,7 +47,7 @@
 
   --light-shadow: 0 0 4px rgb(0 0 0 / 10%);
   --hover-shadow: 0 0 8px rgb(0 0 0 / 20%);
-  --heavy-shadow: 0 0 4px rgb(0 0 0 / 15%), 0 0 24px rgb(0 0 0 / 10%);
+  --heavy-shadow: 0 0 4px rgb(0 0 0 / 8%), 0 0 16px rgb(0 0 0 / 4%);
 }
 
 * {
@@ -82,17 +82,24 @@ button {
   cursor: pointer;
 }
 
+html,
 body {
-  padding-top: 64px;
+  width: 100%;
+  height: 100%;
 }
 
 @media (max-width: 500px) {
   html {
     font-size: 14px;
   }
-  body {
-    padding-top: 48px;
-  }
+}
+
+main {
+  width: min(100%, 460px);
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+  padding-block: 64px;
 }
 
 .neutral-bg0 {
@@ -132,23 +139,41 @@ body {
   color: var(--secondary-dark-tx);
 }
 
+.t-title {
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-family: "BwModelica", sans-serif;
+}
+.t-paragraph {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.3;
+  font-family: "BwModelica", sans-serif;
+}
+.t-label {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.2;
+  font-family: "BwModelica", sans-serif;
+}
+.t-buttonLabel {
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.25;
+  font-family: "BwModelica", sans-serif;
+  letter-spacing: 3%;
+}
+.t-input {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.25;
+  font-family: "BwModelica", sans-serif;
+}
+
 .link {
-  font:
-    400 1.1rem/1.25 "BwModelica",
-    sans-serif;
-}
-.largeText {
-  font:
-    500 1.25rem/1.2 "BwModelica",
-    sans-serif;
-}
-.label {
-  font:
-    400 0.875rem/16px "BwModelica",
-    sans-serif;
-}
-.input {
-  font:
-    400 1rem/1.25 "BwModelica",
-    sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.25;
+  font-family: "BwModelica", sans-serif;
 }

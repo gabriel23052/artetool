@@ -13,21 +13,44 @@
   <meta name="apple-mobile-web-app-title" content="Gerador de artes" />
   <link rel="manifest" href="/favicon/site.webmanifest" />
   <link rel="stylesheet" href="/src/main.css">
-  <title>Gerador de Artes</title>
+  <title>Criador de Artes</title>
 </head>
 
 <body>
-  <img class="logo" src="svg/logo.svg" alt="Logo Cresol">
-  <nav class="intro">
-    <ul>
-      <li class="artGenerator">
-        <a class="primary-bg neutral-inv-tx0 link" href="./artGenerator.html">Gerador de Artes</a>
-      </li>
-      <li class="officialSite">
-        <a class="neutral-tx1 link" href="https://www.cresol.com.br" target="_blank">Acessar site oficial da Cresol</a>
-      </li>
-    </ul>
-  </nav>
+  <main>
+
+    <div class="modal-bg" data-selector="modal">
+      <div class="modal neutral-bg1">
+        <img data-selector="img" src="" alt="">
+        <button class="backButton largeText neutral-bg2 neutral-tx1" data-selector="backBtn">FECHAR</button>
+        <a class="downloadButton largeText primary-bg neutral-inv-tx0" data-selector="downBtn">DOWNLOAD</a>
+      </div>
+    </div>
+
+    <img class="logo" src="svg/logo.svg" alt="Logo Cresol">
+
+    <div class="form">
+      <h1 class="title t-title neutral-tx0">Criador de Artes</h1>
+      <p class="description t-paragraph neutral-tx1">Crie artes personalizadas para a equipe</p>
+      <form action="./">
+        <label class="t-label neutral-tx1" for="name">Nome</label>
+        <input class="t-input neutral-bg0 neutral-tx0" type="name" name="name" id="name" autocomplete="off" maxlength="25" data-selector="nameInput">
+        <label class="t-label neutral-tx1" for="model">Modelo</label>
+        <div>
+          <select class="t-input neutral-bg0 neutral-tx0" data-selector="select" name="model" id="model">
+          </select>
+        </div>
+        <button class="t-buttonLabel neutral-bg2 neutral-tx2" data-selector="genBtn">CRIAR</button>
+      </form>
+    </div>
+
+    <footer class="credits">
+      <p class="t-paragraph neutral-tx1">Desenvolvido por Gabriel G. Pereira</p>
+    </footer>
+
+  </main>
+
+  <script type="module" src="src/main.ts"></script>
 </body>
 
 </html>
