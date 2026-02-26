@@ -99,7 +99,7 @@ main {
   margin: 0 auto;
   height: 100%;
   position: relative;
-  padding-block: 64px;
+  padding: 64px 16px;
 }
 
 .neutral-bg0 {
