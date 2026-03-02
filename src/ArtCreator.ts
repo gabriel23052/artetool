@@ -26,7 +26,10 @@ export default class ArtCreator {
   /** URL do blob da arte gerada ou null */
   private imageURL: string | null = null;
 
-  /** Input de texto onde o usuário digita  o nome
+  /** Formulário com os campos */
+  private formElement: HTMLFormElement = getDomElement<HTMLFormElement>("form");
+
+  /** Input de texto onde o usuário digita o nome
    * do destinatário da arte */
   private nameInputElement: HTMLInputElement =
     getDomElement<HTMLInputElement>("nameInput");
@@ -60,6 +63,10 @@ export default class ArtCreator {
    */
   constructor(patterns: TPattern[]) {
     this.patterns = patterns;
+    this.formElement.addEventListener("submit", (e) => {
+      e.preventDefault();
+      this.downloadLink.click();
+    });
     this.nameInputElement.addEventListener(
       "input",
       this.handleNameInputChange.bind(this),
