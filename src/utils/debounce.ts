@@ -1,5 +1,17 @@
 export class DebounceCancelledError extends Error {}
 
+/** 
+ * Função utilitária que encapsula outra 
+ * função em um contexto que só executa
+ * após um tempo de espera sem novas
+ * chamadas
+ * @param func Função que será chamada após 
+ * o tempo de espera
+ * @param wait Tempo de espera em milissegundos
+ * @return Promise que resolve caso a função
+ * execute, rejeita caso uma nova chamada tenha
+ * sido efetuada antes do tempo de espera
+ */
 export function debounce(
   func: () => Promise<void>,
   wait: number,
