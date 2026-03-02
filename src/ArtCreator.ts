@@ -163,12 +163,14 @@ export default class ArtCreator {
   private makeImageAvailable() {
     if (!this.imageURL) return;
     this.previewElement.src = this.imageURL;
-    const filenameName = this.name.replaceAll(" ", "_").toLowerCase();
-    const filenamePattern = this.patterns[this.patternIndex].name
-      .replaceAll(" ", "_")
+    const filename = `${this.name}-${this.patterns[this.patternIndex].name}.jpg`
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/\s+/g, "_")
+      .replace(/[^\x00-\x7F]/g, "")
       .toLowerCase();
     this.downloadLink.href = this.imageURL;
-    this.downloadLink.download = `${filenameName}-${filenamePattern}.jpg`;
+    this.downloadLink.download = filename;
     this.downloadLink.dataset.available = "true";
   }
 
