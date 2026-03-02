@@ -33,7 +33,7 @@
     <form class="form" action="./" data-selector="form">
       <div class="form-field form-field-name">
         <label class="t-label neutral-tx1" for="name">Nome</label>
-        <input class="t-input neutral-tx1 neutral-bg0" type="name" name="name" id="name" autocomplete="off" maxlength="25" data-selector="nameInput" placeholder="Nome do destinatário">
+        <input class="t-input neutral-tx1 neutral-bg0" type="name" name="name" id="name" autocomplete="off" maxlength="25" data-selector="nameInput" placeholder="Nome do destinatário" required>
       </div>
       <div class="form-field form-field-pattern">
         <label class="t-label neutral-tx1" for="model">Modelo</label>
@@ -41,15 +41,15 @@
       </div>
       <a class="form-downloadLink t-buttonLabel neutral-tx2" data-selector="downloadLink" data-available="false">
         Baixar
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 -960 960 960">
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 -960 960 960">
           <path d="M479-330 247-562l70-68 113 113v-331h98v331l113-113 70 68zM257.72-160q-40.45 0-69.08-28.79Q160-217.57 160-258v-72h98v72h444v-72h98v72q0 40.7-28.8 69.35T701.96-160z" />
         </svg>
       </a>
     </form>
     <div class="preview">
       <p class="preview-noImageText t-paragraph neutral-tx1" data-selector="noImageText" data-show="true">Para começar, preencha um nome e escolha um dos modelos disponíveis.</p>
-      <img class="preview-image" data-selector="preview" data-show="false">
-      <img class="preview-loading" src="/svg/cresol-logo-loading.svg" alt="Carregando arte" data-selector="loading" data-show="false">
+      <img class="preview-image" data-selector="preview" data-show="false" aria-hidden="true">
+      <img class="preview-loading" src="/svg/cresol-logo-loading.svg" alt="Carregando arte" data-selector="loading" data-show="false" aria-hidden="true">
     </div>
   </main>
   <footer class="credits">

@@ -145,15 +145,15 @@ export default class ArtCreator {
    */
   private updateVisibility(newVisibleSection: TVisibleSection) {
     this.visibleSection = newVisibleSection;
-    this.noImageTextElement.dataset.show = (
-      this.visibleSection === "noArt"
-    ).toString();
-    this.loadingElement.dataset.show = (
-      this.visibleSection === "loading"
-    ).toString();
-    this.previewElement.dataset.show = (
-      this.visibleSection === "art"
-    ).toString();
+    const noImageTextNewState = this.visibleSection === "noArt";
+    const loadingNewState = this.visibleSection === "loading";
+    const previewNewState = this.visibleSection === "art";
+    this.noImageTextElement.dataset.show = noImageTextNewState.toString();
+    this.noImageTextElement.ariaHidden = (!noImageTextNewState).toString();
+    this.loadingElement.dataset.show = loadingNewState.toString();
+    this.loadingElement.ariaHidden = (!loadingNewState).toString();
+    this.previewElement.dataset.show = previewNewState.toString();
+    this.previewElement.ariaHidden = (!previewNewState).toString();
   }
 
   /**
@@ -163,12 +163,14 @@ export default class ArtCreator {
   private makeImageAvailable() {
     if (!this.imageURL) return;
     this.previewElement.src = this.imageURL;
-    const filename = `${this.name}-${this.patterns[this.patternIndex].name}.jpg`
+    const patternName = this.patterns[this.patternIndex].name;
+    const filename = `${this.name}-${patternName}.jpg`
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .replace(/\s+/g, "_")
       .replace(/[^\x00-\x7F]/g, "")
       .toLowerCase();
+    this.previewElement.alt = `Arte do modelo "${patternName}" para "${this.name}"`;
     this.downloadLink.href = this.imageURL;
     this.downloadLink.download = filename;
     this.downloadLink.dataset.available = "true";
