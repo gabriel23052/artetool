@@ -12,6 +12,10 @@
   width: min(20rem, 100%);
 }
 
+.header-logo svg {
+  width: 100%;
+}
+
 .header-description {
   width: 100%;
 }
@@ -73,20 +77,18 @@
   position: relative;
   margin-bottom: 2rem;
 }
-.form-field-pattern::after {
-  content: "";
+
+.form-field-pattern svg {
   width: 1rem;
   height: 0.75rem;
-  display: block;
-  background: url("/svg/down-arrow.svg") no-repeat center;
-  background-size: 100% 100%;
   pointer-events: none;
   position: absolute;
   right: 1rem;
   bottom: 1.25rem;
   transition: rotate 300ms;
+  z-index: 1;
 }
-.form-field-pattern:has(select:open)::after {
+.form-field-pattern:has(select:open) svg {
   rotate: 180deg;
 }
 
@@ -165,9 +167,6 @@
 
 .preview-loading {
   width: 6.25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   justify-self: center;
   align-self: center;
   grid-column: 1;
