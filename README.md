@@ -34,13 +34,13 @@ A aplicação foi projetada para gerar as artes de forma rápida, utilizando rec
 
 ### Fluxo
 
-1. **Seleção de nome e modelo**
+1. **Seleção de nome e modelo**  
    O usuário digita o nome do destinatário e escolhe o modelo que deseja.
-2. **Geração da arte**
+2. **Geração da arte**  
    A aplicação gera a arte utilizando a Canvas API.
-3. **Pré-visualização**
+3. **Pré-visualização**  
    A aplicação atualiza a pré-visualização com a arte gerada.
-4. **Download da arte**
+4. **Download da arte**  
    O usuário efetua o download da imagem em formato JPEG.
 
 ### Modelos
